@@ -22,7 +22,6 @@ Jinja2==3.0.1
 MarkupSafe==2.0.1
 numpy==1.21.0
 oauthlib==3.1.1
-psycopg2==2.8.6
 openpyxl==3.0.7
 pandas==1.2.5
 pycparser==2.20
@@ -39,3 +38,4 @@ sqlparse==0.4.1
 uritemplate==3.0.1
 urllib3==1.26.5
 whitenoise==5.2.0
+XlsxWriter==1.4.3
