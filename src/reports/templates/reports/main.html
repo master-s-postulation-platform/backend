@@ -1,21 +1,17 @@
 {% extends 'base.html' %}
 
 {% block title %} main {% endblock title %}
-
 {% block content %}
     {% if chart %}
         <div>
             <img align = 'right' src="data:image/png;base64, {{chart|safe}}" widht=700 height=400>
             <img align = '' src="data:image/png;base64, {{histo|safe}}" widht=700 height=280>
             <img align = '' src="data:image/png;base64, {{civil|safe}}" widht=700 height=280>
-
         </div>
     {% endif  %}
 
     <br>
-    <br>
-    <br>
-    <br>
+
     <h1>Top Score Postulants</h1>
     {{df | safe}}
     <br>

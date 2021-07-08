@@ -5,6 +5,16 @@ from functools import reduce
 
 from profiles.models import Profile, User, JobStatus,CivilStatus, Gender
 import pandas as pd
+
+import geopandas as gpd
+import geopy
+from geopy.geocoders import Nominatim
+from geopy.extra.rate_limiter import RateLimiter
+import matplotlib.pyplot as plt
+import folium
+from folium.plugins import FastMarkerCluster
+
+
 from datetime import date
 
 
@@ -68,6 +78,15 @@ def main_view(request):
     data = pd.DataFrame(list(zip(date_create,counts_create)), columns=['ds','y']) 
     forecast = get_forecast(data)
     components = get_components(data)
+
+
+    locator = Nominatim(user_agent="myGeocoder")
+    location = locator.geocode("Champ de Mars, Paris, France")
+    print("Latitude = {}, Longitude = {}".format(location.latitude, location.longitude))
+
+
+
+
 
     context = {
         'df': sel_col.to_html,
