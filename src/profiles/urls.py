@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 # Views
 from .views import profile_form, education_profile, LanguageProfile, ExperienceProfile,job_status, profile_cities
 
@@ -11,4 +11,5 @@ urlpatterns = [
     path('language/', LanguageProfile.as_view(), name='language_profile'),
     path('experience/', ExperienceProfile.as_view(), name='experience_profile'),
     path('cities/', profile_cities, name='profile_cities'),
+    
 ]

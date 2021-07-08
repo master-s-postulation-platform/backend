@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import AbstractUser, UserManager
+from datetime import date
 
 # Models
 from administration.models import Score
@@ -123,6 +124,8 @@ class Profile(models.Model):
     job_status = models.OneToOneField(JobStatus, null=True, blank=True, on_delete=models.SET_NULL)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    
+    
 
     def __str__(self) -> str:
         return f'{self.score} user:{self.user}'
@@ -186,3 +189,5 @@ class Languages(models.Model):
 
     def __str__(self):
         return f'{self.profile}, {self.language}'
+
+
