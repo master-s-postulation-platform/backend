@@ -55,8 +55,11 @@ class Login(TokenCreateView):
         try:
             token = utils.login_user(self.request, serializer.user)
             token_serializer_class = settings.SERIALIZERS.token
+            user = serializer.user
+            print(user.is_staff)
             return Responses.make_response(
-                data=token_serializer_class(token).data)
+                data=token_serializer_class(token).data,
+                authorization=user.is_staff)
         except Exception as e:
             print(e)
             return Responses.make_response(error=True, message=CONSTANTS.get('error_login'),
